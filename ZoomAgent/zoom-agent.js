@@ -13,18 +13,23 @@ const ZOOM_PHONE_EXTENSION = process.env.ZOOM_PHONE_EXTENSION;
 const ws = new WebSocket(ZOOM_WSS_URL);
 
 ws.on('open', function open() {
-  console.log('Conectado al servidor WebSocket');
-  ws.send('Ext: ' + ZOOM_PHONE_EXTENSION);
+    console.log('Conectado al servidor WebSocket');
+    ws.send(ZOOM_PHONE_EXTENSION);
 });
 
 ws.on('message', function incoming(data) {
-  console.log('Mensaje recibido del servidor:', data.toString());
+    console.log('Mensaje recibido del servidor:', data.toString());
+
+    //
+    // Procesa el mensaje recibido validando la URL
+    //
+    
 });
 
 ws.on('close', function close() {
-  console.log('Desconectado del servidor WebSocket');
+    console.log('Desconectado del servidor WebSocket');
 });
 
 ws.on('error', function error(err) {
-  console.error('Error en WebSocket:', err);
+    console.error('Error en WebSocket:', err);
 });
