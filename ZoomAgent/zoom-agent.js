@@ -1,6 +1,6 @@
 const { json } = require('body-parser');
 const WebSocket = require('ws');
-const open = (...args) => import('open').then(m => m.default(...args));
+const { exec } = require('child_process');
 require('dotenv').config({ path: '.env' });
 
 //
@@ -31,7 +31,8 @@ ws.on('message', function incoming(data) {
             console.log('Mensaje para la extensión:', message.extension);
             if (message.url) {
                 console.log('URL de popup:', message.url);
-                open(message.url);
+                command = `start "" "${message.url}"`;
+                exec(command);
             }
         }
     } else {
