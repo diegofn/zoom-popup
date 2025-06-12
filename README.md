@@ -10,6 +10,8 @@ Zoom Phone Popup based on Webhook and Websockets
 2. Follow the instructions
 ![Instructions](ZoomDeveloperWebhook.gif)
 
+3. Agregar permiso para recibir eventos de todas la cuentas del tenant
+![permisos](permisos.png)
 ## Compile and install
 
 1. Update the Ubuntu Distro
