@@ -1,4 +1,6 @@
+const { json } = require('body-parser');
 const WebSocket = require('ws');
+const open = (...args) => import('open').then(m => m.default(...args));
 require('dotenv').config({ path: '.env' });
 
 //
@@ -23,6 +25,19 @@ ws.on('message', function incoming(data) {
     //
     // Procesa el mensaje recibido validando la URL
     //
+    let message = JSON.parse(data.toString());
+    if (message.extension ) {
+        if (String(message.extension) === ZOOM_PHONE_EXTENSION) {
+            console.log('Mensaje para la extensión:', message.extension);
+            if (message.url) {
+                console.log('URL de popup:', message.url);
+                open(message.url);
+            }
+        }
+    } else {
+        console.log('No se recibió un mensaje correcto');
+    }
+
     
 });
 

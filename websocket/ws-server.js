@@ -9,7 +9,8 @@ function init(server) {
     console.log('WebSocket client connected');
     ws.on('message', function incoming(message) {
       console.log('Received from client:', message.toString());
-      ws.send(`Echo: ${message}`);
+      let response = { "extension": message.toString() }
+      ws.send(JSON.stringify(response));
     });
   });
 }
