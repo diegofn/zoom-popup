@@ -1,0 +1,17 @@
+{
+  "name": "zoom-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Zoom Phone Agent for open popup for incomming calls",
+  "main": "zoom-agent.js",
+  "bin": "zoom-agent.js",
+  "scripts": {
+    "start": "node zoom-agent.js"
+  },
+  "author": "Diego Fernando Nieto",
+  "license": "MIT",
+  "dependencies": {
+    "env": "^0.0.2",
+    "ws": "^8.18.2"
+  }
+}
